@@ -23,7 +23,23 @@ class mult_snow_t
     
     void mult_algorithm(int first_byte, int second_byte)
     {
+        string f_byte_string = to_binary(first_byte);
+        string s_byte_string = to_binary(second_byte);
         
+        int num_of_ones;
+        
+        for(int i = 0; i < s_byte_string.size(); i++)
+            if(s_byte_string[i] == '0')
+                num_of_ones++;
+                
+        
+    }
+    
+    string rellenar(string rellena)
+    {
+        while(rellena.size() < 8)
+            rellena = "0"+rellena;
+        return rellena;
     }
     
     string to_binary(int n)
