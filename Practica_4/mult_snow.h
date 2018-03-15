@@ -55,6 +55,8 @@ class mult_snow_t
         }
     }
     
+    //Desplaza a la izquiera e introduce un 0 por la derecha
+    
     string desplazar(string desp)
     {
         desp.erase(0,1);
