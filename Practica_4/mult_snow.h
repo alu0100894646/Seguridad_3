@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -31,8 +32,34 @@ class mult_snow_t
         for(int i = 0; i < s_byte_string.size(); i++)
             if(s_byte_string[i] == '0')
                 num_of_ones++;
-                
         
+        vector<string> resultado(num_of_ones);
+        int resultado_it = 0;
+        
+        
+        
+        for(int i = s_byte_string.size()-1;i>=0; i--)
+        {
+            string aux = s_byte_string;
+            
+            if(s_byte_string[i]==1)
+            {
+                for(int j = 0; j< 7-i;j++)
+                {
+                    
+                    
+                }
+                resultado[resultado_it] =  aux;
+                
+            }
+        }
+    }
+    
+    string desplazar(string desp)
+    {
+        desp.erase(0,1);
+        desp.push_back('0');
+        return desp;
     }
     
     string rellenar(string rellena)
