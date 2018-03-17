@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cmath>
 
 using namespace std;
 
@@ -27,6 +28,8 @@ class mult_snow_t
         
         string f_byte_string = to_binary(first_byte);
         string s_byte_string = to_binary(second_byte);
+        
+        menor_peso(f_byte_string,s_byte_string);
         
         cout << "Pbyte en binario-> " << f_byte_string << endl << "Sbyte en binario-> " << s_byte_string << endl;
         
@@ -84,6 +87,23 @@ class mult_snow_t
         for(int i = 0; i < num_of_ones; i++)
             cout << "Vamos a sumar: "<< resultado[i] << endl;
         cout << "El resultado de la multiplicación es -> " <<sumar(resultado) << endl;
+    }
+    
+    void menor_peso(string &first_byte, string &second_byte)
+    {
+        int nf = 0;
+        int ns = 0;
+        for(int i = 0; i < 8 ; i++)
+        {
+            if(first_byte[i] == '1')
+                nf++;
+            if(second_byte[i] == '1')
+                ns++;
+        }
+
+        if(nf<ns)
+            swap(first_byte,second_byte);
+            
     }
     
     string sumar(vector<string> sumatorio)
