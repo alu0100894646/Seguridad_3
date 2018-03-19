@@ -16,9 +16,9 @@ class mult_snow_t
     public:
     
     mult_snow_t():
-    Aes_("10101001"),
-    Snow_("00011011"),
-    mode_(true) // False  = AES || True Snow3g
+    Aes_("00011011"),
+    Snow_("10101001"),
+    mode_(false) // False  = AES || True Snow3g
     {}
     
     ~mult_snow_t(){}
