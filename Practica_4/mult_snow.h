@@ -11,14 +11,16 @@ class mult_snow_t
     
     string Aes_;
     string Snow_;
-    bool mode_;
+    string AF_;
+    int mode_;
     
     public:
     
-    mult_snow_t():
+    mult_snow_t(int mode):
     Aes_("00011011"),
     Snow_("10101001"),
-    mode_(false) // False  = AES || True Snow3g
+    AF_("10101111"),
+    mode_(mode) // 0 = AES, 1 = Snow, 2 = AF
     {}
     
     ~mult_snow_t(){}
@@ -33,11 +35,12 @@ class mult_snow_t
         
         cout << "Pbyte en binario-> " << f_byte_string << endl << "Sbyte en binario-> " << s_byte_string << endl;
         
-        if(mode_)
+        if(mode_== 1)
             cout << "Byte del algoritmo-> " << Snow_ << endl;
-        else
+        else if (mode_== 0)
             cout << "Byte del algoritmo-> " << Aes_ << endl;
-        
+        else if (mode_ == 2)
+            cout << "Byte del algoritmo-> " << AF_ << endl;
         int num_of_ones = 0;
         
         for(int i = 0; i < s_byte_string.size(); i++)
@@ -49,10 +52,12 @@ class mult_snow_t
         
         string clave;
         
-        if(mode_)
+        if(mode_== 1)
             clave = Snow_;
-        else
+        else if (mode_== 0)
             clave = Aes_;
+        else if (mode_ == 2)
+            clave = AF_;
         
         
         for(int i = s_byte_string.size()-1;i>=0; i--)
